@@ -4,13 +4,26 @@ class Conta:
         self.numero = numero
         self.saldo = saldo
 
-    @property
-    def saldo(self):
+    # método get
+    def get_saldo(self):
         return self.saldo
 
-    @saldo.setter
-    def saldo(self, saldo):
-        if saldo < 0:
+    # método set
+    def set_saldo(self, saldo):
+        if (saldo < 0):
             print("O saldo não pode ser negativo")
         else:
             self.saldo = saldo
+
+    def saque(self, valor):
+        if (self.saldo >= valor):
+            self.saldo -= valor
+            print("Saque realizado com sucesso!")
+        else:
+            print("Saldo insuficiente!")
+
+    def depositar(self, valor):
+        self.saldo += valor
+
+    def extrato(self):
+        print(f"Cliente: {self.titular} - Saldo: {self.saldo}")
